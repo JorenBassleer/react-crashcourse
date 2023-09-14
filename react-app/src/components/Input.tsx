@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, KeyboardEvent } from "react";
 
 interface Props {
   value: string;
@@ -7,18 +7,18 @@ interface Props {
   placeholder?: string;
   className?: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onKeyDown?: (e: KeyboardEvent<HTMLInputElement>) => void;
 }
-const Input = ({ type, value, size = "base", placeholder, className, onChange }: Props) => {
+const Input = ({ type, value, size = "base", placeholder, className, onChange, onKeyDown }: Props) => {
   return (
-    <>
       <input
         type={type}
         value={value}
         className={className}
         placeholder={placeholder}
         onChange={onChange}
+        onKeyDown={onKeyDown}
       />
-    </>
   );
 };
 

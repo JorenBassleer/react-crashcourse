@@ -6,11 +6,11 @@ interface Props {
 
 function ToDoList({ items }: Props) {
   return (
-      <ul className="list-group">
-        {items.map((item, index) => (
-          <ToDoListItem item={item} key={index} />
-        ))}
-      </ul>
+    <ul className="list-group">
+      {items.map((item, index) => (
+        <ToDoListItem item={item} key={index} />
+      ))}
+    </ul>
   );
 }
 
