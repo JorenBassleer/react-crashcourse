@@ -1,16 +1,25 @@
 import ListGroup from "./components//ListGroup";
-import { useState } from "react";
-import Alert from "./components/Alert";
-import Button from "./components/Button";
+import { useState, ChangeEvent } from "react";
+import ToDoList from "./components/ToDoList";
+import Input from './components/Input';
 
-function App() {
-  const [showAlert, setShowAlert] = useState(false);
+const App = () => {
+  const items = ["Task 1", "Task 2", "Task 3", "Task 4", "Task 5"];
+  const [newItem, setNewItem ] = useState('');
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setNewItem(value);
+  };
   return (
     <div>
-      {showAlert && <Alert onClose={() => setShowAlert(false)}>Hello world</Alert>}
-      <Button onClick={() => setShowAlert(true)}>
-        Click me
-      </Button>
+      <Input
+        type="text"
+        placeholder="Add to to do"
+        className="w-100"
+        value={newItem}
+        onChange={handleInputChange}
+      />
+      <ToDoList items={items} />
     </div>
   );
 }
