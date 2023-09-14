@@ -1,10 +1,12 @@
+import Task from '../types/task';
+
 interface Props {
-  item: string;
+  item: Task;
 }
 function ToDoListItem({ item }: Props) {
   return (
     <>
-      <li className="list-group-item">{item}</li>
+      <li className="list-group-item">{item.getName()}</li>
     </>
   )
 }

@@ -1,7 +1,8 @@
+import Task from "../types/task";
 import ToDoListItem from "./ToDoListItem";
 
 interface Props {
-  items: string[];
+  items: Task[];
 }
 
 function ToDoList({ items }: Props) {

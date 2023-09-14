@@ -1,20 +1,27 @@
-import ListGroup from "./components//ListGroup";
 import { useState, ChangeEvent, KeyboardEvent } from "react";
 import ToDoList from "./components/ToDoList";
 import Input from './components/Input';
+import Task from "./types/task";
 
 const App = () => {
-  const [items, setItems] = useState(["Task 1", "Task 2", "Task 3", "Task 4", "Task 5"]);
+  const [items, setItems] = useState<Task[]>([
+      new Task('Task 1'),
+      new Task('Task 2'),
+      new Task('Task 3'),
+      new Task('Task 4'),
+      new Task('Task 5'),
+    ]);
 
-  const [newItem, setNewItem ] = useState('');
+  const [newItem, setNewItem ] = useState(new Task(''));
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    setNewItem(value);
+    newItem.setName(value);
+    setNewItem(newItem);
   };
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       setItems([...items, newItem]);
-      setNewItem('');
+      setNewItem(newItem);
     }
   };
   return (
@@ -23,7 +30,7 @@ const App = () => {
         type="text"
         placeholder="Add to to do"
         className="w-100"
-        value={newItem}
+        value={newItem.getName()}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
       />
