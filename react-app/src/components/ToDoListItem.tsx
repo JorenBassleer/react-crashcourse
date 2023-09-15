@@ -1,4 +1,4 @@
-import Task from '../types/task';
+import Task from '../types/Task';
 
 interface Props {
   item: Task;

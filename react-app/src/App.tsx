@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, KeyboardEvent } from "react";
 import ToDoList from "./components/ToDoList";
 import Input from './components/Input';
-import Task from "./types/task";
+import Task from "./types/Task";
 
 const App = () => {
   const [items, setItems] = useState<Task[]>([
@@ -15,13 +15,12 @@ const App = () => {
   const [newItem, setNewItem ] = useState(new Task(''));
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    newItem.setName(value);
-    setNewItem(newItem);
+    setNewItem(new Task(value));
   };
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       setItems([...items, newItem]);
-      setNewItem(newItem);
+      setNewItem(new Task(''));
     }
   };
   return (
