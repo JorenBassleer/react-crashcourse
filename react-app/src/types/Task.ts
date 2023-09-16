@@ -1,5 +1,8 @@
 class Task {
-  constructor( private name: string, private isDone: boolean = false) {
+  constructor(
+    private name: string,
+    private isDone: boolean = false,
+  ) {
     this.name = name;
   }
   setIsDone(value: boolean) {
@@ -8,7 +11,7 @@ class Task {
   getIsDone() {
     return this.isDone;
   }
-  setName(value: string){
+  setName(value: string) {
     this.name = value;
   }
   getName(): string {

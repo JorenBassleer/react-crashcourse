@@ -7,11 +7,20 @@ interface Props {
   withEditOption?: boolean;
 }
 
-function ToDoList({ items, isSelecting = false, withEditOption = false }: Props) {
+function ToDoList({
+  items,
+  isSelecting = false,
+  withEditOption = false,
+}: Props) {
   return (
     <ul className="list-group">
       {items.map((item, index) => (
-        <ToDoListItem item={item} key={index} isSelecting={isSelecting} withEditOption={withEditOption}/>
+        <ToDoListItem
+          item={item}
+          key={index}
+          isSelecting={isSelecting}
+          withEditOption={withEditOption}
+        />
       ))}
     </ul>
   );

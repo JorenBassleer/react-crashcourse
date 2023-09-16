@@ -5,8 +5,11 @@ interface Props {
   isSelecting?: boolean;
   withEditOption?: boolean;
 }
-function ToDoListItem({ item, isSelecting = false, withEditOption = false }: Props) {
-  
+function ToDoListItem({
+  item,
+  isSelecting = false,
+  withEditOption = false,
+}: Props) {
   return (
     <>
       <li
@@ -15,14 +18,16 @@ function ToDoListItem({ item, isSelecting = false, withEditOption = false }: Pro
           (item.getIsDone() ? "list-group-item-success" : "")
         }
       >
-        {
-          isSelecting && withEditOption && !item.getIsDone() && <input
-          type="checkbox"
-          className="mx-4"
-          aria-label="Checkbox for following text input"
-          onClick={() => { item.setIsDone(!item.getIsDone()) }}
-        ></input>        
-        }
+        {isSelecting && withEditOption && !item.getIsDone() && (
+          <input
+            type="checkbox"
+            className="mx-4"
+            aria-label="Checkbox for following text input"
+            onClick={() => {
+              item.setIsDone(!item.getIsDone());
+            }}
+          ></input>
+        )}
         {item.getName()}
       </li>
     </>
