@@ -19,6 +19,7 @@ function ToDoListItem({ item, isSelecting }: Props) {
           type="checkbox"
           className="mx-4"
           aria-label="Checkbox for following text input"
+          onClick={() => { item.setIsDone(!item.getIsDone()) }}
         ></input>        
         }
         {item.getName()}

@@ -20,12 +20,14 @@ const App = () => {
     const { value } = e.target;
     setNewItem(new Task(value));
   };
+
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && newItem.getName() !== '') {
       setItems([...items, newItem]);
       setNewItem(new Task(''));
     }
   };
+
   return (
     <div>
       <Input
@@ -36,7 +38,10 @@ const App = () => {
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
       />
-      <ToDoList items={items} isSelecting={isSelecting} />
+      <ToDoList
+        items={items}
+        isSelecting={isSelecting}
+      />
       <Button onClick={() => { setIsSelecting(!isSelecting)}}>Edit</Button>
     </div>
   );
