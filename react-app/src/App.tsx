@@ -1,6 +1,7 @@
 import { useState, ChangeEvent, KeyboardEvent } from "react";
 import ToDoList from "./components/ToDoList";
 import Input from './components/Input';
+import Button from "./components/Button";
 import Task from "./types/Task";
 
 const App = () => {
@@ -13,6 +14,8 @@ const App = () => {
     ]);
 
   const [newItem, setNewItem ] = useState(new Task(''));
+  const [isSelecting, setIsSelecting ] = useState(false);
+
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setNewItem(new Task(value));
@@ -33,7 +36,8 @@ const App = () => {
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
       />
-      <ToDoList items={items} />
+      <ToDoList items={items} isSelecting={isSelecting} />
+      <Button onClick={() => { setIsSelecting(!isSelecting)}}>Edit</Button>
     </div>
   );
 }
