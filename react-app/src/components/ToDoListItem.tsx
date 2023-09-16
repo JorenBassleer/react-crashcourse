@@ -2,9 +2,10 @@ import Task from "../types/Task";
 
 interface Props {
   item: Task;
-  isSelecting: boolean;
+  isSelecting?: boolean;
+  withEditOption?: boolean;
 }
-function ToDoListItem({ item, isSelecting }: Props) {
+function ToDoListItem({ item, isSelecting = false, withEditOption = false }: Props) {
   
   return (
     <>
@@ -15,7 +16,7 @@ function ToDoListItem({ item, isSelecting }: Props) {
         }
       >
         {
-          isSelecting && !item.getIsDone() && <input
+          isSelecting && withEditOption && !item.getIsDone() && <input
           type="checkbox"
           className="mx-4"
           aria-label="Checkbox for following text input"

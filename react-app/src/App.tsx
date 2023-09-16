@@ -38,6 +38,13 @@ const App = () => {
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
       />
+      <h2>Only undone tasks</h2>
+      <ToDoList
+        items={items.filter((item) => !item.getIsDone())}
+        isSelecting={isSelecting}
+        withEditOption={true}
+      />
+      <h2 className="mb-4 mt-5">Complete list</h2>
       <ToDoList
         items={items}
         isSelecting={isSelecting}
