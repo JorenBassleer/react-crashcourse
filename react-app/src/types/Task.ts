@@ -2,8 +2,11 @@ class Task {
   constructor( private name: string, private isDone: boolean = false) {
     this.name = name;
   }
-  setDone() {
-    this.isDone = true;
+  setIsDone(value: boolean) {
+    this.isDone = value;
+  }
+  getIsDone() {
+    return this.isDone;
   }
   setName(value: string){
     this.name = value;

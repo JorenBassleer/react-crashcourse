@@ -6,7 +6,7 @@ interface Props {
 function ToDoListItem({ item }: Props) {
   return (
     <>
-      <li className="list-group-item">{item.getName()}</li>
+      <li className={'list-group-item ' + (item.getIsDone() === true ? 'list-group-item-success' : '')}>{item.getName()}</li>
     </>
   )
 }
