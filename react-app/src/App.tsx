@@ -18,7 +18,7 @@ const App = () => {
     setNewItem(new Task(value));
   };
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && newItem.getName() !== '') {
       setItems([...items, newItem]);
       setNewItem(new Task(''));
     }
