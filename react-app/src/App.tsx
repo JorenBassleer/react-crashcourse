@@ -35,19 +35,18 @@ const App = () => {
         <h1>To Do App</h1>
       </section>
       <section className="border p-5 rounded w-50 mx-auto mt-4">
-        <Input
-          type="text"
-          placeholder="Add to to do"
-          className="w-50 position-relative"
-          value={newItem.getName()}
-          onChange={handleInputChange}
-          onKeyDown={handleKeyDown}
-        />
-        <div className="position-absolute w-50">
+        <div className="d-flex w-100">
+          <Input
+            type="text"
+            placeholder="Add to to do"
+            className="w-50 rounded"
+            value={newItem.getName()}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
+          />
           <Button
-            onClick={() => {
-              setViewAllList(!viewAllList);
-            }}
+            className=""
+            onClick={() => setViewAllList(!viewAllList)}
           >
             {viewAllList ? "Hide all list" : "Show all"}
           </Button>
