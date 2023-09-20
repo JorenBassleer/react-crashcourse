@@ -1,13 +1,19 @@
-interface Props {
+import ElementConfig from "../types/ElementConfig";
+
+interface ButtonProps extends ElementConfig {
   children: string;
-  type?: "primary" | "secondary" | "danger" | "success" | "warning";
-  className?: string;
   onClick: () => void;
+  icon?: React.ReactNode;
 }
-const Button = ({ children, type = "primary", onClick, className }: Props) => {
+const Button = ({ children, type = "primary", onClick, className, icon, size = 'base', ...elementConfig }: ButtonProps) => {
   return (
-    <button className={"btn btn-" + type + " " + className} onClick={onClick}>
+    <button
+      className={"btn btn-" + type + " " + className}
+      onClick={onClick}
+      
+    >
       {children}
+      {icon}
     </button>
   );
 };
