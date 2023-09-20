@@ -6,7 +6,7 @@ interface Props {
 }
 const Button = ({ children, type = "primary", onClick, className }: Props) => {
   return (
-    <button className={"btn btn-" + type + className} onClick={onClick}>
+    <button className={"btn btn-" + type + " " + className} onClick={onClick}>
       {children}
     </button>
   );
