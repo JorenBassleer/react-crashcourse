@@ -1,23 +1,21 @@
 import { ChangeEvent, KeyboardEvent } from "react";
+import ElementConfig from "../types/ElementConfig";
 
-interface Props {
+interface Props extends ElementConfig {
   value: string;
-  size?: "mini" | "small" | "base" | "large";
-  type: string;
   placeholder?: string;
-  className?: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onKeyDown?: (e: KeyboardEvent<HTMLInputElement>) => void;
 }
 const Input = ({
-  type,
   value,
-  size = "base",
   placeholder,
-  className,
   onChange,
   onKeyDown,
+  ...ElementConfig
 }: Props) => {
+  // Implement size later
+  const { size = 'base', type = 'primary', className } = ElementConfig;
   return (
     <input
       type={type}
