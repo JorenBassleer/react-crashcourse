@@ -3,7 +3,7 @@ import { useTasks } from "./hooks/useTasks";
 import ToDoList from "./components/ToDoList";
 import Input from "./components/Input";
 import Button from "./components/Button";
-import Task from "./types/Task";
+import { Task } from "./types/Task";
 
 
 const App = () => {
@@ -31,7 +31,6 @@ const App = () => {
       <section className="border p-5 rounded w-50 mx-auto mt-4">
         <div className="d-flex w-100">
           <Input
-            type="text"
             placeholder="Add to to do"
             className="w-50 rounded"
             value={newItem.getName()}

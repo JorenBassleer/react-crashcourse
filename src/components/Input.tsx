@@ -15,7 +15,7 @@ const Input = ({
   ...ElementConfig
 }: Props) => {
   // Implement size later
-  const { size = 'base', type = 'primary', className } = ElementConfig;
+  const { size = 'base', type = 'text', className } = ElementConfig;
   return (
     <input
       type={type}
