@@ -1,14 +1,14 @@
 import { ITask } from "./Task";
 
-class ToDoList {
+export class ToDoList {
   private tasks: ITask[] = [];
   constructor(
     private name: string,
   ) {
     this.name = name;
   }
-  addTask(task: ITask) {
-    this.tasks.push(task);
+  addTasks(tasks: ITask[]) {
+    this.tasks = [...this.tasks, ...tasks];
   }
   getTasks(): ITask[] {
     return this.tasks;
@@ -20,4 +20,3 @@ class ToDoList {
     return this.name;
   }
 }
-export default ToDoList;

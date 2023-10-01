@@ -1,12 +1,15 @@
 import { useState, ChangeEvent, KeyboardEvent } from "react";
 import { useTasks } from "./hooks/useTasks";
-import ToDoList from "./components/ToDoList";
+import ToDoListComponent from "./components/ToDoList";
 import Input from "./components/Input";
 import Button from "./components/Button";
 import { Task } from "./types/Task";
+import { ToDoList } from './types/ToDoList';
+import { useToDoList } from "./hooks/useToDoList";
 
 
 const App = () => {
+  const { toDoList, setToDoList} = useToDoList();
   const { tasks, setTasks } = useTasks();
   const [newItem, setNewItem] = useState(new Task(""));
   const [isSelecting, setIsSelecting] = useState(false);
@@ -45,7 +48,7 @@ const App = () => {
           </Button>
         </div>
         <h2>Only undone tasks</h2>
-        <ToDoList
+        <ToDoListComponent
           items={tasks.filter((item) => !item.getIsDone())}
           isSelecting={isSelecting}
           withEditOption={true}
@@ -53,7 +56,7 @@ const App = () => {
         {viewAllList && (
           <div>
             <h2 className="mb-4 mt-5">Complete list</h2>
-            <ToDoList items={tasks} isSelecting={isSelecting} />
+            <ToDoListComponent items={tasks} isSelecting={isSelecting} />
           </div>
         )}
 
