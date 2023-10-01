@@ -5,13 +5,20 @@ import Input from "./components/Input";
 import Button from "./components/Button";
 import { Task } from "./types/Task";
 import { ToDoList } from './types/ToDoList';
+import { useAppSelector } from "./hooks";
 import { useToDoList } from "./hooks/useToDoList";
+import store from './store/store';
+import { useDispatch } from "react-redux";
 
 
 const App = () => {
-  const { toDoList, setToDoList} = useToDoList();
+  const { toDoList } = useToDoList();
+  const dispatch = useDispatch();
+  dispatch()
+  // toDoList.push(new ToDoList(''));
   const { tasks, setTasks } = useTasks();
   const [newItem, setNewItem] = useState(new Task(""));
+  const [ newToDoList, setNewToDoList ] = useState(new ToDoList(""));
   const [isSelecting, setIsSelecting] = useState(false);
   const [viewAllList, setViewAllList] = useState(false);
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -34,6 +41,13 @@ const App = () => {
       <section className="border p-5 rounded w-50 mx-auto mt-4">
       <section>
         <h2>Create new to do list</h2>
+        {/* <Input
+          placeholder="Add new to do list"
+          className="w-50 rounded"
+          value={newToDoList.getName()}
+          onChange={handleInputNewToDoList}
+          onKeyDown={handleKeyDownNewToDoList}
+        /> */}
       </section>
         <div className="d-flex w-100">
           <Input

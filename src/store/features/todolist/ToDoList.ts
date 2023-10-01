@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ToDoList } from '../../types/ToDoList';
-import type { RootState } from '../../store';
+import type { RootState } from '../../store/store';
 
 interface ToDoListState {
   value: ToDoList[]
 };
 
 const initialState: ToDoListState = {
-  value: [new ToDoList('')],
+  value: [],
 }
 
 export const toDoListSlice = createSlice({
@@ -15,6 +15,7 @@ export const toDoListSlice = createSlice({
   initialState,
   reducers: {
     addNewToDo: (state, action: PayloadAction<ToDoList>) => {
+      console.log('add new to do');
       state.value.push(action.payload);
     }
   }
