@@ -5,15 +5,18 @@ import Input from "./components/Input";
 import Button from "./components/Button";
 import { Task } from "./types/Task";
 import { ToDoList } from './types/ToDoList';
-import { useAppSelector } from "./hooks";
+import { useAppDispatch, useAppSelector } from "./hooks";
+import { addNewToDo } from "./store/features/todolist/toDoListSlice";
 import { useToDoList } from "./hooks/useToDoList";
-import store from './store/store';
-import { useDispatch } from "react-redux";
+
 
 
 const App = () => {
   const { toDoList } = useToDoList();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+  dispatch(addNewToDo(new ToDoList('')));
+  // const entireList = useAppSelector(state => state.toDoList);
+  // console.log('entire lsit', entireList);
   // toDoList.push(new ToDoList(''));
   const { tasks, setTasks } = useTasks();
   const [newItem, setNewItem] = useState(new Task(""));

@@ -4,10 +4,12 @@ import type { RootState } from '@store';
 
 interface ToDoListState {
   list: ToDoList[]
+  test: string
 };
 
 const initialState: ToDoListState = {
   list: [],
+  test: '',
 }
 
 export const toDoListSlice = createSlice({
@@ -15,13 +17,15 @@ export const toDoListSlice = createSlice({
   initialState,
   reducers: {
     addNewToDo: (state, action: PayloadAction<ToDoList>) => {
-      console.log('add new to do');
-      state.list.push(action.payload);
+      state.test = '123';
+      console.log('here', action.payload);
+      state.list = [...state.list, action.payload];
+      console.log('state:=', state.list)
     }
   }
 })
 
 export const { addNewToDo } = toDoListSlice.actions;
-export const selectToDoList = (state: RootState) => state.toDoList.value;
+export const selectToDoList = (state: RootState) => state.toDoList;
 
 export default toDoListSlice.reducer;
