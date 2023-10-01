@@ -32,6 +32,9 @@ const App = () => {
         <h1>To Do App</h1>
       </section>
       <section className="border p-5 rounded w-50 mx-auto mt-4">
+      <section>
+        <h2>Create new to do list</h2>
+      </section>
         <div className="d-flex w-100">
           <Input
             placeholder="Add to to do"
