@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ToDoList } from '../../types/ToDoList';
+import type { RootState } from '../../store';
 
 interface ToDoListState {
   value: ToDoList[]
@@ -20,4 +21,6 @@ export const toDoListSlice = createSlice({
 })
 
 export const { addNewToDo } = toDoListSlice.actions;
+export const selectToDoList = (state: RootState) => state.toDoList.value;
+
 export default toDoListSlice.reducer;
