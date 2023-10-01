@@ -14,7 +14,6 @@ import { useDispatch } from "react-redux";
 const App = () => {
   const { toDoList } = useToDoList();
   const dispatch = useDispatch();
-  dispatch()
   // toDoList.push(new ToDoList(''));
   const { tasks, setTasks } = useTasks();
   const [newItem, setNewItem] = useState(new Task(""));
