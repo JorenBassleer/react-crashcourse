@@ -1,26 +1,26 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ToDoList } from '@types/ToDoList';
+import { Task } from '@types/Task';
 import type { RootState } from '@store';
 
 interface ToDoListState {
   list: ToDoList[]
-  test: string
 };
 
 const initialState: ToDoListState = {
   list: [],
-  test: '',
 }
 
 export const toDoListSlice = createSlice({
   name: 'toDoList',
   initialState,
   reducers: {
-    addNewToDo: (state, action: PayloadAction<ToDoList>) => {
-      state.test = '123';
-      console.log('here', action.payload);
-      state.list = [...state.list, action.payload];
-      console.log('state:=', state.list)
+    addNewToDo: (state, action: PayloadAction<{name: string, tasks: Task[]}>) => {
+      state.list.push({
+        name: action.payload.name,
+        tasks: action.payload.tasks,
+      });
+      console.log('list:', state.list.values)
     }
   }
 })
